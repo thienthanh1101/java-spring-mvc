@@ -1,11 +1,10 @@
-package vn.hoidanit.laptopshop.service;
+package vn.huynvit.BuyAndSell.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
-import vn.hoidanit.laptopshop.domain.User;
-import vn.hoidanit.laptopshop.repository.UserRepository;
+import vn.huynvit.BuyAndSell.domain.User;
+import vn.huynvit.BuyAndSell.repository.UserRepository;
 
 @Service
 public class UserService {
@@ -21,6 +20,14 @@ public class UserService {
 
     public List<User> getAllUsersByEmail(String email) {
         return this.userRepository.findByEmail(email);
+    }
+
+    public User getUserById(long id) {
+        return this.userRepository.findById(id);
+    }
+
+    public void DeleteUser(long id) {
+        this.userRepository.deleteById(id);
     }
 
     public User handleSaveUser(User user) {
