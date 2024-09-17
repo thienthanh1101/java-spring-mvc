@@ -66,10 +66,21 @@
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+>>>>>>> 0266a2da473dcf624f53da614007e3822d2e02e6
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+<<<<<<< HEAD
+=======
+
+=======
+>>>>>>> ffddb989e6a8c4e048c8a4a6edbcedb1e483ffcf
+>>>>>>> 0266a2da473dcf624f53da614007e3822d2e02e6
 	</dependencies>
 
 	<build>
