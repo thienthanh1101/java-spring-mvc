@@ -4,43 +4,42 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "`orders`")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private long orderId;
-    private long productId;
-    private long quantity;
+    private long id;
+    private double totalPrice;
+    // user id
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Override
     public String toString() {
-        return "Order [orderId=" + orderId + ", productId=" + productId + ", quantity=" + quantity + "]";
+        return "Order [id=" + id + ", totalPrice=" + totalPrice + "]";
     }
 
-    public long getOrderId() {
-        return orderId;
+    public long getId() {
+        return id;
     }
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public long getProductId() {
-        return productId;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
-
-    public long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(long quantity) {
-        this.quantity = quantity;
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
 }
