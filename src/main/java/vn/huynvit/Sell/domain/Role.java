@@ -1,6 +1,5 @@
 package vn.huynvit.sell.domain;
 
-import java.security.PrivateKey;
 import java.util.List;
 
 import jakarta.persistence.Entity;
