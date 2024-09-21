@@ -1,4 +1,4 @@
-package vn.huynvit.sell.controller;
+package vn.huynvit.sell.controller.Admin;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class UserController {
     public String getUserPage(Model model) {
         List<User> users = this.userService.getAllUsers();
         model.addAttribute("users1", users);
-        return "admin/user/table-user";
+        return "admin/user/show";
     }
 
     @RequestMapping("/admin/user/{id}")
@@ -47,7 +47,7 @@ public class UserController {
         System.out.println("Check user detail:" + user);
         model.addAttribute("user", user);
         model.addAttribute("id", id);
-        return "admin/user/show";
+        return "admin/user/detail";
     }
 
     @RequestMapping("/admin/user/create")
