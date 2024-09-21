@@ -1,4 +1,4 @@
-package vn.huynvit.Sell.controller;
+package vn.huynvit.sell.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import vn.huynvit.Sell.domain.User;
-import vn.huynvit.Sell.service.UserService;
+import vn.huynvit.sell.domain.User;
+import vn.huynvit.sell.service.UserService;
 
 import org.springframework.ui.Model;
 

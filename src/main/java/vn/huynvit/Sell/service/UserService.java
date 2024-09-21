@@ -1,11 +1,11 @@
-package vn.huynvit.Sell.service;
+package vn.huynvit.sell.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import vn.huynvit.Sell.domain.User;
-import vn.huynvit.Sell.repository.UserRepository;
+import vn.huynvit.sell.domain.User;
+import vn.huynvit.sell.repository.UserRepository;
 
 @Service
 public class UserService {
