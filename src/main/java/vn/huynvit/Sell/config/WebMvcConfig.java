@@ -1,4 +1,4 @@
-package vn.huynvit.BuyAndSell.config;
+package vn.huynvit.Sell.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

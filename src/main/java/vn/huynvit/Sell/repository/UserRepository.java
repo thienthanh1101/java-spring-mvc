@@ -1,9 +1,9 @@
-package vn.huynvit.BuyAndSell.repository;
+package vn.huynvit.Sell.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import vn.huynvit.BuyAndSell.domain.User;
+import vn.huynvit.Sell.domain.User;
 
 import java.util.List;
 

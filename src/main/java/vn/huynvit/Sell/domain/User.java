@@ -1,4 +1,4 @@
-package vn.huynvit.BuyAndSell.domain;
+package vn.huynvit.Sell.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
