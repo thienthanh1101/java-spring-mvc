@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import jakarta.servlet.ServletContext;
 import vn.huynvit.sell.domain.User;
 import vn.huynvit.sell.service.UploadService;
 import vn.huynvit.sell.service.UserService;
@@ -23,7 +22,7 @@ public class UserController {
     @Autowired
     private final PasswordEncoder passwordEncoder; // hash pass
 
-    public UserController(UploadService uploadService, UserService userService, ServletContext servletContext,
+    public UserController(UploadService uploadService, UserService userService,
             PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
@@ -81,7 +80,8 @@ public class UserController {
         huynv.setRole(this.userService.getRoleByName(huynv.getRole().getName()));// getRole đầu tiên lấy đối tượng role
                                                                                  // getName thứ 2 lấy Name của role
                                                                                  // huynv.setRole(this.userService.getRoleByName=ID
-                                                                                 // của Role
+                                                                                 // của Role. Lưu Role_id Hiển thị
+                                                                                 // Role_name
 
         this.userService.handleSaveUser(huynv);
         return "redirect:/admin/user";
