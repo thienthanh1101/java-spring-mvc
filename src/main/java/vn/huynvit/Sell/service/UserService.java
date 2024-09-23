@@ -4,15 +4,19 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import vn.huynvit.sell.domain.Role;
 import vn.huynvit.sell.domain.User;
+import vn.huynvit.sell.repository.RoleRepository;
 import vn.huynvit.sell.repository.UserRepository;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     public List<User> getAllUsers() {
@@ -35,6 +39,10 @@ public class UserService {
         User huy = this.userRepository.save(user);
         System.out.println(huy);
         return huy;
+    }
+
+    public Role getRoleByName(String name) {
+        return this.roleRepository.findByName(name);
 
     }
 }

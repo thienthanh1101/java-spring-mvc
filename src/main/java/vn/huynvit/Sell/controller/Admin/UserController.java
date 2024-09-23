@@ -1,6 +1,9 @@
 package vn.huynvit.sell.controller.Admin;
 
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,10 +20,14 @@ public class UserController {
     // DI dependency injection
     private final UserService userService;
     private final UploadService uploadService;
+    @Autowired
+    private final PasswordEncoder passwordEncoder; // hash pass
 
-    public UserController(UploadService uploadService, UserService userService, ServletContext servletContext) {
+    public UserController(UploadService uploadService, UserService userService, ServletContext servletContext,
+            PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @RequestMapping("/")
@@ -67,8 +74,16 @@ public class UserController {
             @RequestParam("huynvitFile") MultipartFile file) {
 
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
+        String hashPassword = this.passwordEncoder.encode(huynv.getPassword());
         // System.out.println("test " + avatar);
-        // this.userService.handleSaveUser(huynv);
+        huynv.setAvatar(avatar);
+        huynv.setPassword(hashPassword);
+        huynv.setRole(this.userService.getRoleByName(huynv.getRole().getName()));// getRole đầu tiên lấy đối tượng role
+                                                                                 // getName thứ 2 lấy Name của role
+                                                                                 // huynv.setRole(this.userService.getRoleByName=ID
+                                                                                 // của Role
+
+        this.userService.handleSaveUser(huynv);
         return "redirect:/admin/user";
     }
 
