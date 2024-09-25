@@ -72,12 +72,17 @@ public class UserController {
     }
 
     @PostMapping(value = "/admin/user/create")
-    public String createUserPage(Model model, @ModelAttribute("newUser") @Valid User huynv, BindingResult bindingResult,
+    public String createUserPage(Model model, @ModelAttribute("newUser") @Valid User huynv,
+            BindingResult newUserbindingResult,
             @RequestParam("huynvitFile") MultipartFile file) {
         // validate
-        List<FieldError> errors = bindingResult.getFieldErrors();
+        List<FieldError> errors = newUserbindingResult.getFieldErrors();
         for (FieldError error : errors) {
-            System.out.println(error.getObjectName() + " - " + error.getDefaultMessage());
+            System.out.println(">>>" + error.getField() + " - " + error.getDefaultMessage());
+        }
+        // return page
+        if (newUserbindingResult.hasErrors()) {
+            return "admin/user/create";
         }
         String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
         String hashPassword = this.passwordEncoder.encode(huynv.getPassword());

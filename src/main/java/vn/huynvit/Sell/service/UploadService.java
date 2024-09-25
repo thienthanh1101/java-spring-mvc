@@ -23,6 +23,8 @@ public class UploadService {
         // Save photo
         // relative path: absolute path:
         // String a = this.servletContext.getRealPath("");
+        if (file.isEmpty())
+            return "";
         String rootPath = this.servletContext.getRealPath("/resources/images");
         String finalName = "";
         try {
