@@ -38,13 +38,14 @@
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Email</th>
-                                                    <th>Full Name</th>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Factory</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="user" items="${users1}">
+                                                <!-- <c:forEach var="user" items="${users1}">
                                                     <tr>
                                                         <th>${user.id}</th>
                                                         <th>${user.email}</th>
@@ -58,7 +59,7 @@
                                                                 class="btn btn-danger">Delete</a>
                                                         </th>
                                                     </tr>
-                                                </c:forEach>
+                                                </c:forEach> -->
 
                                             </tbody>
 
