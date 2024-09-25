@@ -12,9 +12,9 @@ public class ProductdController {
         return "admin/product/show";
     }
 
-    @GetMapping("/admin/product/create")
-    public String getCreateProductPage(Model model) {
-        model.addAttribute("newProduct", new Product());
-        return "admin/product/create";
-    }
+    // @GetMapping("/admin/product/create")
+    // public String getCreateProductPage(Model model) {
+    // model.addAttribute("newProduct", new Product());
+    // return "admin/product/create";
+    // }
 }
