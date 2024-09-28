@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import vn.huynvit.sell.domain.Role;
 import vn.huynvit.sell.domain.User;
+import vn.huynvit.sell.domain.dto.RegisterDTO;
 import vn.huynvit.sell.repository.RoleRepository;
 import vn.huynvit.sell.repository.UserRepository;
 
@@ -44,5 +45,14 @@ public class UserService {
     public Role getRoleByName(String name) {
         return this.roleRepository.findByName(name);
 
+    }
+
+    // mapping DTO
+    public User registerDTOtoUser(RegisterDTO registerDTO) {
+        User user = new User();
+        user.setFullName(registerDTO.getFirstName() + " " + registerDTO.getLastName());
+        user.setEmail(registerDTO.getEmail());
+        user.setPassword(registerDTO.getPassword());
+        return user;
     }
 }

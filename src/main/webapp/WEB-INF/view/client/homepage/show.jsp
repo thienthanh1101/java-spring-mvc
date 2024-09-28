@@ -49,7 +49,7 @@
                 </div>
                 <!-- Spinner End -->
 
-                <jsp:include page="../layout/header.jsp" />
+                <!-- <jsp:include page="../layout/header.jsp" /> -->
 
                 <jsp:include page="../layout/banner.jsp" />
 

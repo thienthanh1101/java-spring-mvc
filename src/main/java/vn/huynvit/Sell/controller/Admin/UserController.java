@@ -76,10 +76,11 @@ public class UserController {
             BindingResult newUserbindingResult,
             @RequestParam("huynvitFile") MultipartFile file) {
         // validate
-        List<FieldError> errors = newUserbindingResult.getFieldErrors();
-        for (FieldError error : errors) {
-            System.out.println(">>>" + error.getField() + " - " + error.getDefaultMessage());
-        }
+        // List<FieldError> errors = newUserbindingResult.getFieldErrors();
+        // for (FieldError error : errors) {
+        // System.out.println(">>>" + error.getField() + " - " +
+        // error.getDefaultMessage());
+        // }
         // return page
         if (newUserbindingResult.hasErrors()) {
             return "admin/user/create";
