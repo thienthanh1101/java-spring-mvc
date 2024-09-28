@@ -15,7 +15,6 @@ import vn.huynvit.sell.service.UserService;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 
 @Controller
 public class UserController {

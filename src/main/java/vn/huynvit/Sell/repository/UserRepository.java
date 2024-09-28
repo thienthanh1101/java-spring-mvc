@@ -19,4 +19,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
 
     User findById(long id);// not null if not use this function, we use default of spring
+
+    boolean existsByEmail(String email);
 }
