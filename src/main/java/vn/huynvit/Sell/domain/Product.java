@@ -1,5 +1,6 @@
 package vn.huynvit.sell.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +30,7 @@ public class Product {
     private String detailDesc;
     @NotNull
     @NotEmpty(message = "Không được để trống")
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String shortDesc;
     @Min(value = 1, message = "Số lượng phải >=1")
     private long quantity;

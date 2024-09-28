@@ -51,11 +51,7 @@
 
                 <jsp:include page="../layout/header.jsp" />
 
-
                 <jsp:include page="../layout/banner.jsp" />
-
-
-
 
                 <!-- Fruits Shop Start-->
                 <div class="container-fluid fruite py-5">
@@ -97,7 +93,7 @@
                                                                     </a>
 
                                                                 </h4>
-                                                                <p style="font-size: 13px;">${product.shortDesc}</p>
+                                                                <p style="font-size: 13px;">${product1.shortDesc}</p>
                                                                 <div
                                                                     class="d-flex  flex-lg-wrap justify-content-center flex-column">
                                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
