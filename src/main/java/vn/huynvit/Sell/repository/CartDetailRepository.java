@@ -3,10 +3,9 @@ package vn.huynvit.sell.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import vn.huynvit.sell.domain.Product;
+import vn.huynvit.sell.domain.dto.CartDetail;
 
-// Cru: Create, Update, Read, Delete
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface CartDetailRepository extends JpaRepository<CartDetail, Long> {
 
 }
