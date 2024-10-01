@@ -6,11 +6,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import vn.huynvit.sell.domain.Product;
 import vn.huynvit.sell.domain.User;
@@ -32,7 +33,7 @@ public class HomePageController {
     }
 
     @GetMapping("/")
-    public String getMethodName(Model model) {
+    public String getMethodName(Model model, HttpServletRequest request) {
         List<Product> products = this.productService.getAllProduct();
         model.addAttribute("products", products);
         return "client/homepage/show";
