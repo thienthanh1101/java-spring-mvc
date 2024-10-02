@@ -76,7 +76,7 @@ public class ProductService {
                     cd.setCart(cart);
                     cd.setProduct(realProduct);
                     cd.setPrice(realProduct.getPrice());
-                    cd.setQuantity(0);
+                    cd.setQuantity(1);
                     this.cartDetailRepository.save(cd);
 
                     // update cart (sum);
@@ -94,5 +94,13 @@ public class ProductService {
 
         }
 
+    }
+
+    // public void deleteProduct(long id) {
+    // this.productRepository.deleteById(id);
+    // }
+
+    public Cart fectchByUser(User user) {
+        return this.cartRepository.findByUser(user);
     }
 }

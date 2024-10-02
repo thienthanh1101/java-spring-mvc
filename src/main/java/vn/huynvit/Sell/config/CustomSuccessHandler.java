@@ -55,7 +55,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
             session.setAttribute("avatar", user.getAvatar());
             session.setAttribute("id", user.getId());
             session.setAttribute("email", user.getEmail());
-            int sum = user.getCart().getSum();// tạo quan hệ join 2 bảng
+            int sum = user.getCart() == null ? 0 : user.getCart().getSum();// tạo quan hệ join 2 bảng
             session.setAttribute("sum", sum);
         }
     }
