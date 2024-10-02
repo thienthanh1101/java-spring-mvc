@@ -48,7 +48,7 @@ public class ProductService {
         return huy;
     }
 
-    public void handleAddProductToCart(String email, long productId) {
+    public void handleAddProductToCart(String email, long productId, HttpSession session) {
         // check user đã có cart chưa? nếu chưa -->tạo mới
         User user = this.userService.getUserByEmail(email);
         if (user != null) {
@@ -76,13 +76,14 @@ public class ProductService {
                     cd.setCart(cart);
                     cd.setProduct(realProduct);
                     cd.setPrice(realProduct.getPrice());
-                    cd.setQuantity(1);
+                    cd.setQuantity(0);
                     this.cartDetailRepository.save(cd);
 
                     // update cart (sum);
                     int s = cart.getSum() + 1;
                     cart.setSum(s);
                     this.cartRepository.save(cart);
+                    session.setAttribute("sum", s);
 
                 } else {
                     oldDetail.setQuantity(oldDetail.getQuantity() + 1);
