@@ -1,4 +1,4 @@
-package vn.huynvit.sell.domain.dto;
+package vn.huynvit.sell.domain;
 
 import java.util.List;
 
@@ -11,7 +11,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
-import vn.huynvit.sell.domain.User;
 
 @Entity
 @Table(name = "carts")

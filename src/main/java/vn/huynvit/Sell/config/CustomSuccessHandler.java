@@ -69,9 +69,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         if (response.isCommitted()) {
             return;
         }
-
         redirectStrategy.sendRedirect(request, response, targetUrl);
         clearAuthenticationAttributes(request, authentication);
-
     }
 }

@@ -1,4 +1,4 @@
-package vn.huynvit.sell.domain.dto;
+package vn.huynvit.sell.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import vn.huynvit.sell.domain.Product;
 
 @Entity
 @Table(name = "cart_detail")

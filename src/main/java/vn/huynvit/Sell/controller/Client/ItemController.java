@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import jakarta.persistence.Id;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import vn.huynvit.sell.domain.Product;
@@ -39,4 +38,10 @@ public class ItemController {
         return "redirect:/";
 
     }
+
+    @GetMapping("/cart")
+    public String getCartPage(Model model) {
+        return "client/cart/show";
+    }
+
 }

@@ -13,7 +13,6 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import vn.huynvit.sell.domain.dto.Cart;
 
 @Entity
 @Table(name = "users")
@@ -43,6 +42,14 @@ public class User {
     List<Order> orders;
     @OneToOne(mappedBy = "user")
     private Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public Role getRole() {
         return role;
