@@ -93,9 +93,9 @@
                                                                     </a>
 
                                                                 </h4>
-                                                                <p style="font-size: 13px;">${product1.shortDesc}</p>
+                                                                <p style="font-size: 13px;">${product.shortDesc}</p>
                                                                 <div
-                                                                    class="d-flex  flex-lg-wrap justify-content-center flex-column">
+                                                                    class="d-flex  flex-lg-wrap justify-content-center">
                                                                     <p style="font-size: 15px; text-align: center; width: 100%;"
                                                                         class="text-dark  fw-bold mb-3">
                                                                         <fmt:formatNumber type="number"
@@ -106,9 +106,8 @@
                                                                         <input type="hidden"
                                                                             name="${_csrf.parameterName}"
                                                                             value="${_csrf.token}" />
-
                                                                         <button data-product-id="${product.id}"
-                                                                            class="btnAddToCartHomepage mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                                            class="mx-auto btn border border-secondary rounded-pill px-3 text-primary">
                                                                             <i
                                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                                             Add to cart

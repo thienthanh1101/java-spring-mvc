@@ -90,7 +90,7 @@ public class SecurityConfiguration {
                 .sessionManagement((sessionManagement) -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                         .invalidSessionUrl("/logout?expired")
-                        .maximumSessions(1)// cho phep 1 lan dang nhap cua account duoc bao nhieu lan song song tren
+                        .maximumSessions(5)// cho phep 1 lan dang nhap cua account duoc bao nhieu lan song song tren
                                            // nhieu thiet bi khác nhau
                         .maxSessionsPreventsLogin(false))
 
