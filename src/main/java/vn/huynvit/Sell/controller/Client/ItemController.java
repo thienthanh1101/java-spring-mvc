@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import jakarta.persistence.Id;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import vn.huynvit.sell.domain.Product;
 import vn.huynvit.sell.service.ProductService;
 
@@ -28,8 +31,12 @@ public class ItemController {
     }
 
     @PostMapping("/add-product-to-cart/{id}")
-    public String addProductToCart(@PathVariable long id){
-        return "redirect:/"
+    public String addProductToCart(@PathVariable long id, HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        long productId = id;
+        String email = (String) session.getAttribute("email");
+        this.productService.handleAddProductToCart(email, productId);
+        return "redirect:/";
 
     }
 }
