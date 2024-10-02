@@ -1,5 +1,6 @@
 package vn.huynvit.sell.controller.Client;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -51,8 +52,8 @@ public class ItemController {
         long id = (long) session.getAttribute("id");
         currentUser.setId(id);
         Cart cart = this.productService.fectchByUser(currentUser);
-        List<CartDetail> cartDetails = cart.getCartDetails(); // join 2 table
-
+        List<CartDetail> cartDetails = cart == null ? new ArrayList<CartDetail>() : cart.getCartDetails(); // join 2
+                                                                                                           // table
         double totalPrice = 0;
         for (CartDetail cd : cartDetails) {
             totalPrice += cd.getPrice() * cd.getQuantity();
