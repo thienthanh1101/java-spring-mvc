@@ -150,20 +150,29 @@ public class ProductService {
 
     public void handlePlaceOrder(User user, HttpSession session,
             String receiverName, String receiverAddress, String receiverPhone) {
-        // Create Order
-        Order order = new Order();
-        order.setUser(user);
-        order.setReceiverAddress(receiverAddress);
-        order.setReceiverName(receiverName);
-        order.setReceiverPhone(receiverPhone);
-        order = this.orderRepository.save(order);
-        // Create Order detail
-
-        // Step 1: get cart by user
         Cart cart = this.cartRepository.findByUser(user);
         if (cart != null) {
             List<CartDetail> cartDetail = cart.getCartDetails();
             if (cartDetail != null) {
+                // Create Order
+                Order order = new Order();
+                order.setUser(user);
+                order.setReceiverAddress(receiverAddress);
+                order.setReceiverName(receiverName);
+                order.setReceiverPhone(receiverPhone);
+                order.setStatus("PENDING");
+
+                double sum = 0;
+                for (CartDetail cd : cartDetail) {
+                    sum += cd.getPrice();
+                }
+                order.setTotalPrice(sum);
+                order = this.orderRepository.save(order);
+
+                // Create Order detail
+
+                // Step 1: get cart by user
+
                 for (CartDetail cd : cartDetail) {
                     OrderDetail orderDetail = new OrderDetail();
                     orderDetail.setOrder(order);
@@ -172,9 +181,8 @@ public class ProductService {
                     orderDetail.setQuantity(cd.getQuantity());
                     this.orderDetailRepository.save(orderDetail);
                 }
-            }
-            // step 2: delete cart_detail and cart
-            if (cartDetail != null) {
+
+                // step 2: delete cart_detail and cart
                 for (CartDetail cd : cartDetail) {
                     this.cartDetailRepository.deleteById(cd.getId());
                 }
@@ -182,8 +190,7 @@ public class ProductService {
                 // Step 3 Update session
                 session.setAttribute("sum", 0);
             }
-
         }
-
     }
+
 }

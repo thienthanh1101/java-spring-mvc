@@ -28,6 +28,14 @@ public class Order {
 
     private String status;
 
+    // user id
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetail> orderDetails;
+
     public String getReceiverName() {
         return receiverName;
     }
@@ -59,14 +67,6 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
-
-    // user id
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @OneToMany(mappedBy = "order")
-    List<OrderDetail> orderDetails;
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;

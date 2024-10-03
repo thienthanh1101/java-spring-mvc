@@ -33,7 +33,7 @@ public class ProductController {
     @RequestMapping("/admin/product")
     public String getProduct(Model model) {
         List<Product> products = this.productService.getAllProduct();
-        model.addAttribute("products1", products);
+        model.addAttribute("products", products);
         return "admin/product/show";
     }
 
