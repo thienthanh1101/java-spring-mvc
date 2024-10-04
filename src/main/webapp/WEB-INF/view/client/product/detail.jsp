@@ -96,7 +96,7 @@
                                                     </button>
                                                 </div>
                                                 <input type="text"
-                                                    class="form-control form-control-sm text-center border-0" value="0"
+                                                    class="form-control form-control-sm text-center border-0" value="1"
                                                     data-cart-detail-index="0">
                                                 <div class="input-group-btn">
                                                     <button class="btn btn-sm btn-plus rounded-circle bg-light border">
