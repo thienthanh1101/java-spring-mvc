@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import vn.huynvit.sell.domain.Order;
 import vn.huynvit.sell.domain.OrderDetail;
+import vn.huynvit.sell.domain.User;
 import vn.huynvit.sell.repository.OrderDetailRepository;
 import vn.huynvit.sell.repository.OrderRepository;
 
@@ -48,6 +49,10 @@ public class OrderService {
             currentOrder.setStatus(order.getStatus());
             this.orderRepository.save(currentOrder);
         }
+    }
+
+    public List<Order> fetchOrderByUser(User user) {
+        return this.orderRepository.findByUser(user);
     }
 
 }
