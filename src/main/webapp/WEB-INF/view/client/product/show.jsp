@@ -140,21 +140,21 @@
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="price-2"
                                                         value="duoi-10-trieu">
-                                                    <label class="form-check-label" for="price-2">Dưới-10-triệu</label>
+                                                    <label class="form-check-label" for="price-2">Dưới 10 triệu</label>
                                                 </div>
 
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="price-3"
-                                                        value="10-toi-15-trieu">
+                                                        value="10-15-trieu">
                                                     <label class="form-check-label" for="price-3">Từ 10 - 15
                                                         triệu</label>
                                                 </div>
 
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="price-4"
-                                                        value="15-toi-20-trieu">
+                                                        value="15-20-trieu">
                                                     <label class="form-check-label" for="price-4">Từ 15 - 20
-                                                        trieu</label>
+                                                        triệu</label>
                                                 </div>
 
                                                 <div class="form-check form-check-inline">

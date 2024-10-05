@@ -251,9 +251,6 @@
         $("#priceFilter .form-check-input:checked").each(function () {
             priceArr.push($(this).val());
         });
-
-        //console.log(factoryArr, targetArr, priceArr)
-        // debugger
         //sort order
         let sortValue = $('input[name="radio-sort"]:checked').val();
 
