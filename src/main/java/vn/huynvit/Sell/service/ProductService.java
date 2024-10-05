@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.http.HttpSession;
@@ -15,11 +16,13 @@ import vn.huynvit.sell.domain.Order;
 import vn.huynvit.sell.domain.OrderDetail;
 import vn.huynvit.sell.domain.Product;
 import vn.huynvit.sell.domain.User;
+import vn.huynvit.sell.domain.dto.ProductCriteriaDTO;
 import vn.huynvit.sell.repository.CartDetailRepository;
 import vn.huynvit.sell.repository.CartRepository;
 import vn.huynvit.sell.repository.OrderDetailRepository;
 import vn.huynvit.sell.repository.OrderRepository;
 import vn.huynvit.sell.repository.ProductRepository;
+import vn.huynvit.sell.service.specification.ProductSpecs;
 
 @Service
 public class ProductService {
@@ -50,6 +53,32 @@ public class ProductService {
         return this.productRepository.findAll(page);
     }
 
+    public Page<Product> fetchProductsWithSpec(Pageable page, ProductCriteriaDTO productCriteriaDTO) {
+        if (productCriteriaDTO.getTarget() != null && productCriteriaDTO.getFactory() != null
+                && productCriteriaDTO.getPrice() != null) {
+            return this.productRepository.findAll(page);
+        }
+        Specification<Product> combineSpec = Specification.where(null);
+        if (productCriteriaDTO.getTarget() != null && productCriteriaDTO.getTarget().isPresent()) {
+            Specification<Product> currentSpec = ProductSpecs.matchListTarget(productCriteriaDTO.getTarget().get());
+            combineSpec = combineSpec.and(currentSpec);
+        }
+        if (productCriteriaDTO.getFactory() != null && productCriteriaDTO.getFactory().isPresent()) {
+            Specification<Product> currentSpec = ProductSpecs.matchListFactory(productCriteriaDTO.getFactory().get());
+            combineSpec = combineSpec.and(currentSpec);
+        }
+
+        if (productCriteriaDTO.getPrice() != null && productCriteriaDTO.getPrice().isPresent()) {
+            Specification<Product> currentSpec = this.buildPriceSpecification(productCriteriaDTO.getPrice().get());
+            combineSpec = combineSpec.and(currentSpec);
+        }
+        return this.productRepository.findAll(combineSpec, page);
+    }
+
+    public Page<Product> fetchAllProductsWithSpec(Pageable page, String name) {
+        return this.productRepository.findAll(ProductSpecs.nameLike(name), page);
+    }
+
     public Optional<Product> fetchProductById(long id) {
         return this.productRepository.findById(id);
     }
@@ -62,6 +91,42 @@ public class ProductService {
         Product huy = this.productRepository.save(product);
         System.out.println(huy);
         return huy;
+    }
+
+    // case 6
+    public Specification<Product> buildPriceSpecification(List<String> price) {
+        Specification<Product> combinedSpec = Specification.where(null);
+        for (String p : price) {
+            double min = 0;
+            double max = 0;
+
+            // Set the appropriate min and max based on the price range string
+            switch (p) {
+                case "duoi-10-trieu":
+                    min = 0;
+                    max = 9999999;
+                    break;
+                case "10-15-trieu":
+                    min = 10000000;
+                    max = 14999999;
+                    break;
+                case "15-20-trieu":
+                    min = 15000000;
+                    max = 19999999;
+                    break;
+                case "tren-20-trieu":
+                    min = 20000000;
+                    max = 200000000;
+                    break;
+            }
+
+            if (min != 0 && max != 0) {
+                Specification<Product> rangeSpec = ProductSpecs.matchMultiplePrice(min, max);
+                combinedSpec = combinedSpec.or(rangeSpec);
+            }
+        }
+
+        return combinedSpec;
     }
 
     public void handleAddProductToCart(String email, long productId, HttpSession session, long quantity) {

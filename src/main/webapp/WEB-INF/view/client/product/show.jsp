@@ -35,13 +35,6 @@
 
                     <!-- Template Stylesheet -->
                     <link href="/client/css/style.css" rel="stylesheet">
-                    <style>
-                        .page-link.disabled {
-                            color: var(--bs-pagination-disabled-color);
-                            pointer-events: none;
-                            background-color: var(--bs-pagination-disabled-bg);
-                        }
-                    </style>
                 </head>
 
                 <body>
@@ -147,21 +140,21 @@
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="price-2"
                                                         value="duoi-10-trieu">
-                                                    <label class="form-check-label" for="price-2">Dưới 10 triệu</label>
+                                                    <label class="form-check-label" for="price-2">Dưới-10-triệu</label>
                                                 </div>
 
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="price-3"
-                                                        value="10-15-trieu">
+                                                        value="10-toi-15-trieu">
                                                     <label class="form-check-label" for="price-3">Từ 10 - 15
                                                         triệu</label>
                                                 </div>
 
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="price-4"
-                                                        value="15-20-trieu">
+                                                        value="15-toi-20-trieu">
                                                     <label class="form-check-label" for="price-4">Từ 15 - 20
-                                                        triệu</label>
+                                                        trieu</label>
                                                 </div>
 
                                                 <div class="form-check form-check-inline">
@@ -203,7 +196,7 @@
                                     </div>
                                     <div class="col-12 col-md-8 text-center">
                                         <div class="row g-4">
-                                            <c:if test="${totalPages ==  0}">
+                                            <c:if test="${totalPages == 0 }">
                                                 <div>Không tìm thấy sản phẩm</div>
                                             </c:if>
                                             <c:forEach var="product" items="${products}">
@@ -250,9 +243,7 @@
                                                     </div>
                                                 </div>
                                             </c:forEach>
-
-
-                                            <c:if test="${totalPages > 0}">
+                                            <c:if test="${totalPages > 0 }">
                                                 <div class="pagination d-flex justify-content-center mt-5">
                                                     <li class="page-item">
                                                         <a class="${1 eq currentPage ? 'disabled page-link' : 'page-link'}"
