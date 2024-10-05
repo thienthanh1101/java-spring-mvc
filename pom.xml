@@ -8,6 +8,7 @@
 		<version>3.3.4</version>
 		<relativePath/>
 		<!-- lookup parent from repository -->
+		<packaging>war</packaging>
 	</parent>
 	<groupId>vn.hoidanit</groupId>
 	<artifactId>laptopshop</artifactId>
@@ -66,10 +67,6 @@
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
 		<dependency>			<!--check not null-->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
@@ -79,10 +76,6 @@
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-jdbc</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
@@ -91,8 +84,13 @@
 			<scope>provided</scope>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>4.0.4</version>
+		</dependency>
 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
