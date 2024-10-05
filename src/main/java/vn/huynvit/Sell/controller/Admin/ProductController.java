@@ -3,6 +3,9 @@ package vn.huynvit.sell.controller.Admin;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,9 +34,15 @@ public class ProductController {
     }
 
     @RequestMapping("/admin/product")
-    public String getProduct(Model model) {
-        List<Product> products = this.productService.getAllProduct();
+    public String getProduct(Model model, @RequestParam("page") int page) {
+        Pageable pageable = PageRequest.of(page - 1, 4);
+        Page<Product> prs = this.productService.fetchAllProducts(pageable);
+        List<Product> products = prs.getContent();
         model.addAttribute("products", products);
+        // xu ly page
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", prs.getTotalPages());
+
         return "admin/product/show";
     }
 
