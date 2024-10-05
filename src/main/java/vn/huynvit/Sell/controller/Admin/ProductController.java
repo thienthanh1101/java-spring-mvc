@@ -33,8 +33,21 @@ public class ProductController {
         this.uploadService = uploadService;
     }
 
-    @RequestMapping("/admin/product")
-    public String getProduct(Model model, @RequestParam("page") int page) {
+    @GetMapping("/admin/product")
+    public String getProduct(Model model, @RequestParam("page") Optional<String> pageOptional) {
+        int page = 1;
+        try {
+            if (pageOptional.isPresent()) {
+                // convert from String to int
+                page = Integer.parseInt(pageOptional.get());
+            } else {
+                // page = 1
+            }
+        } catch (Exception e) {
+            // page = 1
+            // TODO: handle exception
+        }
+
         Pageable pageable = PageRequest.of(page - 1, 4);
         Page<Product> prs = this.productService.fetchAllProducts(pageable);
         List<Product> products = prs.getContent();
