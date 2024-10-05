@@ -91,11 +91,16 @@
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="factory-5"
+                                                        value="HP">
+                                                    <label class="form-check-label" for="factory-4">HP</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="factory-6"
                                                         value="LG">
                                                     <label class="form-check-label" for="factory-5">LG</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="checkbox" id="factory-6"
+                                                    <input class="form-check-input" type="checkbox" id="factory-7"
                                                         value="ACER">
                                                     <label class="form-check-label" for="factory-6">Acer</label>
                                                 </div>
