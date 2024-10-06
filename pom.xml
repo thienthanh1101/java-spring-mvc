@@ -8,15 +8,16 @@
 		<version>3.3.4</version>
 		<relativePath/>
 		<!-- lookup parent from repository -->
-		<packaging>war</packaging>
 	</parent>
-	<groupId>vn.hoidanit</groupId>
+	<groupId>vn.huynvit</groupId>
 	<artifactId>laptopshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>laptopshop</name>
 	<description>Demo project for Spring Boot</description>
+	<!-- jar không hỗ trợ jsp :v -->
+	<packaging>war</packaging>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
