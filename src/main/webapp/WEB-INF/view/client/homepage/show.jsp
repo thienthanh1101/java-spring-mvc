@@ -48,14 +48,11 @@
                     <div class="spinner-grow text-primary" role="status"></div>
                 </div>
                 <!-- Spinner End -->
-
                 <jsp:include page="../layout/header.jsp" />
-
                 <jsp:include page="../layout/banner.jsp" />
-
                 <!-- Fruits Shop Start-->
-                <div class="container-fluid fruite py-5">
-                    <div class="container py-5">
+                <div class="container-fluid fruite py-2">
+                    <div class="container py-2">
                         <div class="tab-class text-center">
                             <div class="row g-4">
                                 <div class="col-lg-4 text-start">
@@ -78,10 +75,10 @@
                                             <div class="row g-4">
                                                 <c:forEach var="product" items="${products}">
                                                     <div class="col-md-6 col-lg-4 col-xl-3">
-                                                        <div class="rounded position-relative fruite-item">
+                                                        <div class="rounded position-relative fruite-item"  >
                                                             <div class="fruite-img">
-                                                                <img src="/images/product/${product.image}"
-                                                                    class="img-fluid w-100 rounded-top" alt="">
+                                                                <img src="/images/product/${product.image}" style="height: 190px;"
+                                                                    class="img-fluid w-100 rounded-top" alt=""  >
                                                             </div>
                                                             <div class=" text-white bg-secondary px-3 py-1 rounded
                                                                     position-absolute" style="top: 10px; left: 10px;">
@@ -93,7 +90,6 @@
                                                                     <a href="/product/${product.id}">
                                                                         ${product.name}
                                                                     </a>
-
                                                                 </h4>
                                                                 <p style="font-size: 13px;">${product.shortDesc}</p>
                                                                 <div

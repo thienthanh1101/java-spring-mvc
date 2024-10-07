@@ -1,8 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <!-- Hero Start -->
-        <div class="container-fluid py-5 mb-5 hero-header">
-            <div class="container py-5">
+        <div class="container-fluid py-4 mb-5 hero-header" style="height: 400px;">
+            <div class="container py-2">
                 <div class=" row g-5 align-items-center">
                     <div class=" col-md-12 col-lg-7">
                         <h4 class="mb-3 text-secondary">100% Sản Phẩm Chính Hãng</h4>
@@ -12,7 +12,7 @@
                         <div id=" carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active rounded">
-                                    <img src="/client/img/hero-img-1.png"
+                                    <img src="/client/img/hero-img-1.png" 
                                         class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                                     <a href="#" class="btn px-4 py-2 text-white rounded">Gaming</a>
                                 </div>

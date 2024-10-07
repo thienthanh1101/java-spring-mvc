@@ -44,7 +44,7 @@ public class UserController {
         return "hello";
     }
 
-    @RequestMapping("/admin/user")
+    @GetMapping("/admin/user")
     public String getUserPage(Model model, @RequestParam("page") Optional<String> pageOptional) {
         int page = 1;
         try {
@@ -69,11 +69,11 @@ public class UserController {
         return "admin/user/show";
     }
 
-    @RequestMapping("/admin/user/{id}")
+    @GetMapping("/admin/user/{id}")
     public String getUserDetailPage(Model model, @PathVariable long id) {
         User user = this.userService.getUserById(id);
         // System.out.println("Check Path:" + id);
-        System.out.println("Check user detail:" + user);
+        //System.out.println("Check user detail:" + user);
         model.addAttribute("user", user);
         model.addAttribute("id", id);
         return "admin/user/detail";
@@ -85,7 +85,7 @@ public class UserController {
         return "admin/user/create";
     }
 
-    @RequestMapping("/admin/user/update/{id}")
+    @PostMapping("/admin/user/update/{id}")
     public String getUpdateUserPage(Model model, @PathVariable long id) {
         User currentUser = this.userService.getUserById(id);
         model.addAttribute("newUser", currentUser);

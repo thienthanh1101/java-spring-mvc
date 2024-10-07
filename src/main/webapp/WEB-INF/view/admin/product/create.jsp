@@ -104,6 +104,7 @@
                                                         <form:option value="APPLE">Apple (MacBook)</form:option>
                                                         <form:option value="ASUS">Asus</form:option>
                                                         <form:option value="LENOVO">Lenovo</form:option>
+														<form:option value="HP">Hp</form:option>
                                                         <form:option value="DELL">Dell</form:option>
                                                         <form:option value="LG">LG</form:option>
                                                         <form:option value="ACER">Acer</form:option>

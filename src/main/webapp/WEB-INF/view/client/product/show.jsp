@@ -100,17 +100,17 @@
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="factory-5"
                                                         value="HP">
-                                                    <label class="form-check-label" for="factory-4">HP</label>
+                                                    <label class="form-check-label" for="factory-5">Hp</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="factory-6"
                                                         value="LG">
-                                                    <label class="form-check-label" for="factory-5">LG</label>
+                                                    <label class="form-check-label" for="factory-6">LG</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="checkbox" id="factory-7"
                                                         value="ACER">
-                                                    <label class="form-check-label" for="factory-6">Acer</label>
+                                                    <label class="form-check-label" for="factory-5">Acer</label>
                                                 </div>
 
                                             </div>
@@ -216,7 +216,7 @@
                                                 <div class="col-md-6 col-lg-4">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/images/product/${product.image}"
+                                                            <img src="/images/product/${product.image}" style="height: 180px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
