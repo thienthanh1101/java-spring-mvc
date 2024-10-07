@@ -26,10 +26,10 @@ public class Product {
     private String image;
     @NotNull
     @NotEmpty(message = "Không được để trống")
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String detailDesc;
     @NotNull
     @NotEmpty(message = "Không được để trống")
-    @Column(columnDefinition = "MEDIUMTEXT")
     private String shortDesc;
     @Min(value = 1, message = "Số lượng phải >=1")
     private long quantity;
