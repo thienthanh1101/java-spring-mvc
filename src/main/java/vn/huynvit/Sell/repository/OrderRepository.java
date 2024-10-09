@@ -14,6 +14,5 @@ import vn.huynvit.sell.domain.User;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByUser(User user);
 
- 
-	Page<Order> findAll(Pageable page);
+    Page<Order> findAll(Pageable page);
 }
